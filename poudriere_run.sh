@@ -1,7 +1,7 @@
 #!/bin/sh
 PORTS_TREES='upstream'
 JAILS='FreeBSD:10:amd64 FreeBSD:11:amd64'
-PYTHON_VERSIONS='2.7 3.4 3.5 3.6'
+PYTHON_VERSION='3.6'
 for PORTS_TREE in ${PORTS_TREES}; do
 
         # Update poudriere ports tree
@@ -15,11 +15,9 @@ for PORTS_TREE in ${PORTS_TREES}; do
                 # Build the ports
                 poudriere bulk -f /usr/local/poudriere/pkg-list.txt -j ${JAIL} -p ${PORTS_TREE}
 
-                for PYTHON_VERSION in ${PYTHON_VERSIONS}; do
-                        echo "DEFAULT_VERSIONS+= python=${PYTHON_VERSION}" > ${MAKEFILE}
-                        poudriere bulk -f /usr/local/poudriere/pkg-list.txt -j ${JAIL} -p ${PORTS_TREE}
-                        rm -f ${MAKEFILE}
-                done
+		echo "DEFAULT_VERSIONS+= python=${PYTHON_VERSION}" > ${MAKEFILE}
+		poudriere bulk -f /usr/local/poudriere/pkg-list.txt -j ${JAIL} -p ${PORTS_TREE}
+		rm -f ${MAKEFILE}
         done
 
 done
