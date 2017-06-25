@@ -9,5 +9,4 @@ sysutils/beadm
 sysutils/pv
 sysutils/screen
 sysutils/tmux
-www/firefox
 www/py-requests
