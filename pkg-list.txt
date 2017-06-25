@@ -1,4 +1,13 @@
-www/py-requests
+editors/nano
+editors/vim
+editors/vim-lite
+java/openjdk8
+ports-mgmt/pkg
+ports-mgmt/poudriere
 security/py-certbot
 sysutils/beadm
-editors/vim-lite
+sysutils/pv
+sysutils/screen
+sysutils/tmux
+www/firefox
+www/py-requests
